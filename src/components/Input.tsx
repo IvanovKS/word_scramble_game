@@ -2,7 +2,7 @@ import { Box, TextField } from '@mui/material';
 import React, { useState } from 'react';
 
 function Input() {
-  const [name, setName] = useState('');
+  const [name, setName] = useState<string>('');
 
   return (
     <Box sx={{ width: 500, maxWidth: '100%', m: 2 }}>
