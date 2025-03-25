@@ -1,33 +1,29 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 
-function Timer() {
+function Word() {
   return (
     <Box
       sx={{
         width: 500,
         maxWidth: '100%',
         display: 'flex',
+        justifyContent: 'center',
         alignItems: 'center',
       }}
     >
-      <Typography variant="h6" gutterBottom sx={{ m: 1 }}>
-        Time left:
-      </Typography>
       <Typography
-        variant="h6"
+        variant="h2"
         gutterBottom
         sx={{
-          backgroundColor: 'secondary.main',
-          letterSpacing: 1,
+          letterSpacing: 4,
           fontWeight: '700',
-          m: 1,
         }}
       >
-        30
+        word
       </Typography>
     </Box>
   );
 }
 
-export default Timer;
+export default Word;
