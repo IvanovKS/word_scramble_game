@@ -1,7 +1,9 @@
-import { Box, Typography } from '@mui/material';
 import React from 'react';
+import { Box, Typography } from '@mui/material';
+import { useWord } from '../hooks/hooks';
 
 function Help() {
+  const { currentWord } = useWord();
   return (
     <Box
       sx={{
@@ -24,7 +26,7 @@ function Help() {
           m: 1,
         }}
       >
-        Here must be description
+        {currentWord.hint}
       </Typography>
     </Box>
   );
