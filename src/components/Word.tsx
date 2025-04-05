@@ -1,4 +1,3 @@
-import React from 'react';
 import { useWord } from '../hooks/hooks';
 import { Box, Typography } from '@mui/material';
 

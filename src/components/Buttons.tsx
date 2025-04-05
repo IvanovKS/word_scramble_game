@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, Stack } from '@mui/material';
 import { useWord } from '../hooks/hooks';
 

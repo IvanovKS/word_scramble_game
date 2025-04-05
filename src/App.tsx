@@ -4,6 +4,7 @@ import Help from './components/Help';
 import Buttons from './components/Buttons';
 import Word from './components/Word';
 import WordProvider from './context/WordContext';
+import TimerProvider from './context/TimerContext';
 import {
   Box,
   Container,
@@ -25,52 +26,54 @@ const theme = createTheme({
 
 function App() {
   return (
-    <WordProvider>
-      <ThemeProvider theme={theme}>
-        <Container
-          maxWidth="lg"
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: '100vh',
-          }}
-        >
-          <Box
+    <TimerProvider>
+      <WordProvider>
+        <ThemeProvider theme={theme}>
+          <Container
+            maxWidth="lg"
             sx={{
-              bgcolor: '#ffda8f26',
-              border: 2,
-              borderRadius: 2,
-              width: '800px',
-              height: '450px',
               display: 'flex',
               justifyContent: 'center',
-              flexDirection: 'column',
               alignItems: 'center',
-              boxShadow: '10px 5px 10px 5px rgba(0,0,0,0.19)',
+              minHeight: '100vh',
             }}
           >
-            <Typography variant="h3" gutterBottom>
-              Word Scramble Game
-            </Typography>
-            <Word />
-            <Help />
-            <Timer />
-            <Input />
             <Box
               sx={{
-                maxWidth: '100%',
+                bgcolor: '#ffda8f26',
+                border: 2,
+                borderRadius: 2,
+                width: '800px',
+                height: '450px',
                 display: 'flex',
                 justifyContent: 'center',
+                flexDirection: 'column',
                 alignItems: 'center',
+                boxShadow: '10px 5px 10px 5px rgba(0,0,0,0.19)',
               }}
             >
-              <Buttons />
+              <Typography variant="h3" gutterBottom>
+                Word Scramble Game
+              </Typography>
+              <Word />
+              <Help />
+              <Timer />
+              <Input />
+              <Box
+                sx={{
+                  maxWidth: '100%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <Buttons />
+              </Box>
             </Box>
-          </Box>
-        </Container>
-      </ThemeProvider>
-    </WordProvider>
+          </Container>
+        </ThemeProvider>
+      </WordProvider>
+    </TimerProvider>
   );
 }
 

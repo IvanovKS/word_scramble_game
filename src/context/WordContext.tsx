@@ -14,7 +14,7 @@ const WordProvider: React.FC<{ children: React.ReactNode }> = ({
     words[Math.floor(Math.random() * words.length)],
   );
 
-  const setNewWord = () => {
+  const setNewWord = (): void => {
     const newWord = words[Math.floor(Math.random() * words.length)];
     setCurrentWord(newWord);
   };

@@ -1,7 +1,8 @@
 import { Box, Typography } from '@mui/material';
-import React from 'react';
+import { useTimer } from '../hooks/hooks';
 
 function Timer() {
+  const { timeLeft } = useTimer();
   return (
     <Box
       sx={{
@@ -24,7 +25,7 @@ function Timer() {
           m: 1,
         }}
       >
-        30
+        {timeLeft}
       </Typography>
     </Box>
   );
