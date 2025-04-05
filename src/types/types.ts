@@ -10,6 +10,6 @@ export interface WordContextType {
 
 export interface TimerContextType {
   isStart: boolean;
-  timeLeft: number;
+  timeLeft: number | null;
   startTimer: () => void;
 }

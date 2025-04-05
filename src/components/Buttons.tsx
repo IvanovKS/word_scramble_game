@@ -5,9 +5,13 @@ import { useTimer } from '../hooks/hooks';
 function Buttons() {
   const { setNewWord } = useWord();
   const { startTimer } = useTimer();
+  const onClick = () => {
+    setNewWord();
+    startTimer();
+  };
   return (
     <Stack spacing={2} direction="row">
-      <Button variant="contained" sx={{ color: 'white' }} onClick={startTimer}>
+      <Button variant="contained" sx={{ color: 'white' }} onClick={onClick}>
         Refresh word
       </Button>
       <Button variant="contained" sx={{ color: 'white' }}>
