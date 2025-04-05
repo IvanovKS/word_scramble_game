@@ -1,8 +1,10 @@
 import { Box, Typography } from '@mui/material';
 import { useWord } from '../hooks/hooks';
+import { useTimer } from '../hooks/hooks';
 
 function Help() {
   const { currentWord } = useWord();
+  const { isStart } = useTimer();
   return (
     <Box
       sx={{
@@ -25,7 +27,7 @@ function Help() {
           m: 1,
         }}
       >
-        {currentWord.hint}
+        {isStart ? currentWord.hint : 'click the button "Refresh word"'}
       </Typography>
     </Box>
   );

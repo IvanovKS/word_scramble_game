@@ -1,8 +1,10 @@
 import { useWord } from '../hooks/hooks';
+import { useTimer } from '../hooks/hooks';
 import { Box, Typography } from '@mui/material';
 
 function Word() {
   const { currentWord } = useWord();
+  const { isStart } = useTimer();
   return (
     <Box
       sx={{
@@ -21,10 +23,12 @@ function Word() {
           fontWeight: '700',
         }}
       >
-        {currentWord.word
-          .split('')
-          .sort(() => Math.random() - 0.5)
-          .join('')}
+        {isStart
+          ? currentWord.word
+              .split('')
+              .sort(() => Math.random() - 0.5)
+              .join('')
+          : '...'}
       </Typography>
     </Box>
   );

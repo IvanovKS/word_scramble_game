@@ -7,7 +7,7 @@ const TimerProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [isStart, setIsStart] = useState(false);
-  const [timeLeft, setTimeLeft] = useState<number>(20);
+  const [timeLeft, setTimeLeft] = useState<number>(15);
 
   const startTimer = (): void => {
     setIsStart(true);
@@ -17,6 +17,7 @@ const TimerProvider: React.FC<{ children: React.ReactNode }> = ({
       setTimeLeft(time);
       if (time === 0) {
         setIsStart(false);
+        setTimeLeft(15);
         clearInterval(interval);
       }
     }, 1000);
