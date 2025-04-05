@@ -1,24 +1,7 @@
 import { Box, Typography } from '@mui/material';
-import { CountTimer } from '../types/types';
-import { FC, useEffect } from 'react';
+import React from 'react';
 
-const Timer: FC<CountTimer> = ({
-  isActive,
-  seconds,
-  setSeconds,
-  resetTimer,
-}) => {
-  useEffect(() => {
-    if (!isActive) return;
-    if (seconds === 0) {
-      resetTimer();
-      return;
-    }
-    const interval = setInterval(() => {
-      setSeconds((prev) => (prev > 0 ? prev - 1 : 0));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [isActive, seconds, setSeconds, resetTimer]);
+function Timer() {
   return (
     <Box
       sx={{
@@ -41,10 +24,10 @@ const Timer: FC<CountTimer> = ({
           m: 1,
         }}
       >
-        {seconds}
+        30
       </Typography>
     </Box>
   );
-};
+}
 
 export default Timer;

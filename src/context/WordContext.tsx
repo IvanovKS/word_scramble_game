@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import words from '../data/words';
 import { WordContextType, WordsType } from '../types/types';
 import { createContext } from 'react';
@@ -14,10 +14,10 @@ const WordProvider: React.FC<{ children: React.ReactNode }> = ({
     words[Math.floor(Math.random() * words.length)],
   );
 
-  const setNewWord = useCallback(() => {
+  const setNewWord = () => {
     const newWord = words[Math.floor(Math.random() * words.length)];
     setCurrentWord(newWord);
-  }, []);
+  };
 
   return (
     <WordContext.Provider value={{ currentWord, setNewWord }}>
