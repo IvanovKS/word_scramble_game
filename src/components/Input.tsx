@@ -1,19 +1,17 @@
 import { Box, TextField } from '@mui/material';
-import React, { useState } from 'react';
+import { useInput } from '../hooks/hooks';
 
 function Input() {
-  const [text, setText] = useState<string>('');
+  const { inputText, onChangeInput } = useInput();
 
   return (
     <Box sx={{ width: 500, maxWidth: '100%', m: 2 }}>
       <TextField
         fullWidth
         id="outlined-controlled"
-        value={text}
+        value={inputText}
         placeholder="Enter a valid word"
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-          setText(event.target.value);
-        }}
+        onChange={onChangeInput}
       />
     </Box>
   );

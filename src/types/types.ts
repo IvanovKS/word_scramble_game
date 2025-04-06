@@ -13,3 +13,8 @@ export interface TimerContextType {
   timeLeft: number | null;
   startTimer: () => void;
 }
+
+export interface InputContextType {
+  inputText: string;
+  onChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}

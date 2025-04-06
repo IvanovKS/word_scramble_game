@@ -1,17 +1,18 @@
 import { Button, Stack } from '@mui/material';
 import { useWord } from '../hooks/hooks';
 import { useTimer } from '../hooks/hooks';
+import { useInput } from '../hooks/hooks';
 
 function Buttons() {
-  const avatar = 'avatAR '; // заглушка
   const { setNewWord, currentWord } = useWord();
   const { startTimer } = useTimer();
+  const { inputText } = useInput();
   const onClickRefresh = (): void => {
     setNewWord();
     startTimer();
   };
   const onClickCheck = (): void => {
-    if (avatar.toLowerCase().trim() === currentWord.word) {
+    if (inputText === currentWord.word) {
       console.log('yes');
     } else {
       console.log('no');
