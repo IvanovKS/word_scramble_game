@@ -3,6 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useWord } from '../hooks/hooks';
 import { useTimer } from '../hooks/hooks';
 import { useInput } from '../hooks/hooks';
+import { useState } from 'react';
 
 function Buttons() {
   const notify = (elem1: string, elem2: string): void => {
@@ -10,7 +11,7 @@ function Buttons() {
     const text = elem1 === elem2 ? `You are right!` : `Try again!`;
     toast[property](text, {
       position: 'top-center',
-      autoClose: 5000,
+      autoClose: 4000,
       hideProgressBar: false,
       closeOnClick: false,
       pauseOnHover: true,
@@ -20,19 +21,17 @@ function Buttons() {
     });
   };
 
+  const [disabled, setDisabled] = useState(true);
+
   const { setNewWord, currentWord } = useWord();
   const { startTimer } = useTimer();
   const { inputText } = useInput();
   const onClickRefresh = (): void => {
     setNewWord();
     startTimer();
+    setDisabled(false);
   };
   const onClickCheck = (): void => {
-    if (inputText === currentWord.word) {
-      console.log('yes');
-    } else {
-      console.log('no');
-    }
     notify(inputText, currentWord.word);
   };
   return (
@@ -48,6 +47,7 @@ function Buttons() {
         variant="contained"
         sx={{ color: 'white' }}
         onClick={onClickCheck}
+        disabled={disabled}
       >
         Check word
       </Button>
