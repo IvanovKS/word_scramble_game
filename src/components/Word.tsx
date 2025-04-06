@@ -5,7 +5,7 @@ import { Box, Typography } from '@mui/material';
 
 function Word() {
   const { currentWord } = useWord();
-  const [shownWord, setShownWord] = useState<string>('');
+  const [shownWord, setShownWord] = useState<string>('...');
   const { isStart } = useTimer();
   useEffect(() => {
     if (isStart) {
